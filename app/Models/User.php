@@ -23,6 +23,11 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function foods()
+    {
+        return $this->belongsToMany(Food::class)
+            ->withPivot(['date','weight']);
+    }
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -32,7 +37,6 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-
     /**
      * Get the attributes that should be cast.
      *
