@@ -20,20 +20,27 @@
                 <table class="w-full min-h-full border border-gray-400">
                     <thead>
                     <tr class="h-12 border border-gray-400 border-b-2 border-b-gray-400">
+                        <td class="text-center">date</td>
                         <td class="text-center">calorie</td>
                         <td class="text-center">weight</td>
                         <td class="text-center">food's title</td>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($foods as $food)
+                    @foreach($user->foods as $food)
                         <tr class="h-12 border border-gray-400 border-b-2 border-b-gray-400">
-                            {{$food->title}}
+                            <td class="text-center">{{$food->pivot->date}}</td>
+                            <td class="text-center">{{$food->pivot->weight*$food->calories}}</td>
+                            <td class="text-center">{{$food->pivot->weight}}</td>
+                            <td class="text-center">{{$food->name}}</td>
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
             </div>
-{{--            <div class="mt-5">{{$courses->links()}}</div>--}}
+            <div class="w-[90%] h-[100px] flex flex-col gap-y-4">
+                <p class="text-xl">Daily calorie allowance : <span>{{$tdee}}</span></p>
+                <p class="text-xl">Calories consumed : <span>{{$calories}}</span></p>
+            </div>
         </div>
 @endsection

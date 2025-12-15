@@ -23,7 +23,9 @@ class User extends Authenticatable
         'password',
         'weight',
         'height',
-        'exercise',
+        'gender',
+        'age',
+        'activity',
     ];
 
     public function foods()

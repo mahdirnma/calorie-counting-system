@@ -19,15 +19,19 @@ class UserSeeder extends Seeder
             'email' => 'ali@gmail.com',
             'password' => Hash::make('123'),
             'weight' => 80,
-            'height' => 180,
-            'exercise' => 10,
+            'height' => 1.8,
+            'gender' => 'male',
+            'age' => 25,
+            'activity' => 1.55,
         ]);
         User::create([
             'name' => 'sara',
             'email' => 'sara@gmail.com',
             'password' => Hash::make('123'),
             'weight' => 50,
-            'height' => 170,
+            'height' => 1.7,
+            'gender' => 'female',
+            'age' => 30,
         ]);
     }
 }

@@ -18,8 +18,10 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->integer('weight');
-            $table->integer('height');
-            $table->integer('exercise')->default(0);
+            $table->float('height');
+            $table->string('gender');
+            $table->integer('age');
+            $table->float('activity')->default(1.2);
             $table->rememberToken();
             $table->timestamps();
         });
