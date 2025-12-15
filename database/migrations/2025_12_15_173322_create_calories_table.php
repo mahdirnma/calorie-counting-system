@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('calories', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
-            $table->integer('number_of_calories');
+            $table->float('number_of_calories');
             $table->float('bmi');
             $table->timestamps();
         });

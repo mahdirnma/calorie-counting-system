@@ -15,11 +15,11 @@ class FoodSeeder extends Seeder
     {
         Food::create([
             'name' => 'banana',
-            'calories' => '89',
+            'calories' => 0.89,
         ]);
         Food::create([
             'name' => 'potato',
-            'calories' => '77',
+            'calories' => 0.77,
         ]);
 
     }

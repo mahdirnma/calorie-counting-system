@@ -11,7 +11,7 @@
 <body>
 <div class="w-svw h-svh">
     <div class="w-full h-[12%] flex items-center flex-row-reverse pr-12 text-xl">
-        <h1 class="font-bold text-xl">panel</h1>
+        <h1 class="font-bold text-xl">foods panel</h1>
         <div class="w-5/6 h-full flex items-center justify-center">
             <nav>
                 <ul class="flex flex-row-reverse">
