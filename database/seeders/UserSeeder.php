@@ -20,7 +20,6 @@ class UserSeeder extends Seeder
             'password' => Hash::make('123'),
             'weight' => 80,
             'height' => 180,
-            'gender' => 'male',
             'exercise' => 10,
         ]);
         User::create([
@@ -29,7 +28,6 @@ class UserSeeder extends Seeder
             'password' => Hash::make('123'),
             'weight' => 50,
             'height' => 170,
-            'gender' => 'female',
         ]);
     }
 }
