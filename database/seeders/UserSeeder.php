@@ -18,11 +18,18 @@ class UserSeeder extends Seeder
             'name' => 'ali',
             'email' => 'ali@gmail.com',
             'password' => Hash::make('123'),
+            'weight' => 80,
+            'height' => 180,
+            'gender' => 'male',
+            'exercise' => 10,
         ]);
         User::create([
-            'name' => 'reza',
-            'email' => 'reza@gmail.com',
+            'name' => 'sara',
+            'email' => 'sara@gmail.com',
             'password' => Hash::make('123'),
+            'weight' => 50,
+            'height' => 170,
+            'gender' => 'female',
         ]);
     }
 }

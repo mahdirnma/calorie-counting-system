@@ -21,12 +21,21 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'weight',
+        'height',
+        'gender',
+        'exercise',
     ];
 
     public function foods()
     {
         return $this->belongsToMany(Food::class)
             ->withPivot(['date','weight']);
+    }
+
+    public function calorie()
+    {
+        return $this->hasOne(Calorie::class);
     }
     /**
      * The attributes that should be hidden for serialization.
