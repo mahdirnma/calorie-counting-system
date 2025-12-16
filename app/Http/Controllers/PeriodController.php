@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Period;
 use App\Http\Requests\StorePeriodRequest;
 use App\Http\Requests\UpdatePeriodRequest;
+use Illuminate\Support\Facades\Auth;
 
 class PeriodController extends Controller
 {
@@ -13,7 +14,9 @@ class PeriodController extends Controller
      */
     public function index()
     {
-        //
+        $user=Auth::user();
+        $periods=$user->periods;
+        return view('periods.index',compact('periods'));
     }
 
     /**
@@ -21,7 +24,7 @@ class PeriodController extends Controller
      */
     public function create()
     {
-        //
+        return view('periods.create');
     }
 
     /**
@@ -29,7 +32,16 @@ class PeriodController extends Controller
      */
     public function store(StorePeriodRequest $request)
     {
-        //
+        $user=Auth::user();
+        $start_date=date("Y-m-d");
+        $period=$user->periods()->create([
+            ...$request->validated(),
+            'start_date'=>$start_date,
+        ]);
+        $periods=$user->periods;
+        if($period){
+            return redirect()->route('periods.index',compact('periods'));
+        }
     }
 
     /**

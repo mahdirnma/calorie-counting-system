@@ -22,7 +22,7 @@ return new class extends Migration
             $table->date('start_date');
             $table->integer('days');
             $table->boolean('is_completed')->default(false);
-            $table->foreignId('reference_id')->constrained('periods')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('reference_id')->nullable()->constrained('periods')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

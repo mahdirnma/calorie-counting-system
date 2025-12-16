@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FoodController;
+use App\Http\Controllers\PeriodController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -12,6 +13,7 @@ Route::post('/register',[AuthController::class,'register'])->name('register');
 
 Route::middleware('auth')->group(function(){
     Route::get('/',[UserController::class,'index'])->name('home');
+    Route::resource('/periods',PeriodController::class)->only(['index','create','store']);
     Route::get('/user/foods',[UserController::class,'foods'])->name('user.foods');
     Route::post('/logout',[AuthController::class,'logout'])->name('logout');
 });

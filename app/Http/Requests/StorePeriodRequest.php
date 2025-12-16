@@ -11,7 +11,7 @@ class StorePeriodRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,12 @@ class StorePeriodRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => 'required',
+            'current_weight' => 'required',
+            'target_weight' => 'required',
+            'activity' => 'required',
+            'age' => 'required',
+            'days' => 'required',
         ];
     }
 }
