@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Calorie extends Model
 {
     protected $fillable=[
-        'user_id',
+        'period_id',
         'number_of_calories',
-        'bmi'
+        'bmr'
     ];
-    public function user(){
-        return $this->belongsTo(User::class);
+    public function period(){
+        return $this->belongsTo(Period::class);
     }
 }

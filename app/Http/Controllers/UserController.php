@@ -46,7 +46,6 @@ class UserController extends Controller
             $calories+=$food->calories*$food->pivot->weight;
         }
         $foods=Food::all();
-        $tdee=$user->calorie->number_of_calories;
-        return view('User.foods',compact('foods','user','calories','tdee'));
+        return view('User.foods',compact('foods','user','calories'));
     }
 }

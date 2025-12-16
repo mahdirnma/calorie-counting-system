@@ -21,11 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'weight',
         'height',
         'gender',
-        'age',
-        'activity',
     ];
 
     public function foods()
@@ -34,9 +31,9 @@ class User extends Authenticatable
             ->withPivot(['date','weight']);
     }
 
-    public function calorie()
+    public function periods()
     {
-        return $this->hasOne(Calorie::class);
+        return $this->hasMany(Period::class);
     }
     /**
      * The attributes that should be hidden for serialization.

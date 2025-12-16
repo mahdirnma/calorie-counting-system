@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('calories', function (Blueprint $table) {
-            $table->id();
-            $table->float('number_of_calories');
-            $table->float('bmr');
-            $table->timestamps();
+        Schema::table('calories', function (Blueprint $table) {
+            $table->foreignId('period_id')->after('id')->constrained()->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
@@ -24,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('calories');
+        Schema::table('calories', function (Blueprint $table) {
+            $table->dropForeign('period_id');
+        });
     }
 };

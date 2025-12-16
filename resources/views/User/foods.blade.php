@@ -39,7 +39,7 @@
                 </table>
             </div>
             <div class="w-[90%] h-[100px] flex flex-col gap-y-4">
-                <p class="text-xl">Daily calorie allowance : <span>{{$tdee}}</span></p>
+                <p class="text-xl">Daily calorie allowance : <span>{{$user->calorie->number_of_calories}}</span></p>
                 <p class="text-xl">Calories consumed : <span>{{$calories}}</span></p>
             </div>
         </div>
