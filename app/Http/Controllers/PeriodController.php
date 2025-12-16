@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Calorie;
 use App\Models\Period;
 use App\Http\Requests\StorePeriodRequest;
 use App\Http\Requests\UpdatePeriodRequest;
@@ -39,6 +40,19 @@ class PeriodController extends Controller
             'start_date'=>$start_date,
         ]);
         $periods=$user->periods;
+        if ($user->gender=='male'){
+            $bmr=(10*$period->current_weight)+(6.25*$user->height)-(5*$period->age)+5;
+        }else{
+            $bmr=(10*$period->current_weight)+(6.25*$user->height)-(5*$period->age)-161;
+        }
+        $tdee=round($bmr*$period->activity);
+//        $status=$period->calorie()->create([
+        Calorie::create([
+            'period_id'=>$period->id,
+            'number_of_calories'=>$tdee,
+            'bmr'=>$bmr,
+        ]);
+
         if($period){
             return redirect()->route('periods.index',compact('periods'));
         }

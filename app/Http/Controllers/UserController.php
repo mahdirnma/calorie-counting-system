@@ -17,19 +17,8 @@ class UserController extends Controller
     public function foods(Request $request)
     {
         $user=Auth::user();
-        if (!$user->calorie){
-            $bmi=round($user->weight/($user->height*$user->height),2);
-            if ($user->gender=='male'){
-                $bmr=(10*$user->weight)+(6.25*$user->height)-(5*$user->age)+5;
-            }else{
-                $bmr=(10*$user->weight)+(6.25*$user->height)-(5*$user->age)-161;
-            }
-            $tdee=round($bmr*$user->activity);
-            Calorie::create([
-                'user_id'=>$user->id,
-                'number_of_calories'=>$tdee,
-                'bmi'=>$bmi,
-            ]);
+        if (!$user->periods->last()->calorie) {
+            return redirect()->back();
         }
         if($request->food_id){
             if (!$request->weight){
@@ -46,6 +35,7 @@ class UserController extends Controller
             $calories+=$food->calories*$food->pivot->weight;
         }
         $foods=Food::all();
-        return view('User.foods',compact('foods','user','calories'));
+        $period=$user->periods->last();
+        return view('User.foods',compact('foods','user','calories','period'));
     }
 }

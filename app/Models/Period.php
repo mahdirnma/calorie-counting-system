@@ -21,7 +21,7 @@ class Period extends Model
 
     public function calorie()
     {
-        return $this->belongsTo(Calorie::class);
+        return $this->hasOne(Calorie::class);
     }
 
     public function users()
