@@ -28,7 +28,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($user->foods as $food)
+                    @foreach($userFoods as $food)
                         <tr class="h-12 border border-gray-400 border-b-2 border-b-gray-400">
                             <td class="text-center">{{$food->pivot->date}}</td>
                             <td class="text-center">{{$food->pivot->weight*$food->calories}}</td>

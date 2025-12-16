@@ -20,11 +20,11 @@ class UserController extends Controller
         if (!$user->periods->last()->calorie) {
             return redirect()->back();
         }
+        $date=date("Y-m-d");
         if($request->food_id){
             if (!$request->weight){
                 return redirect()->route('user.foods');
             }
-            $date=date("Y-m-d");
             $food_id=$request->food_id;
             $weight=$request->weight;
             $user->foods()->attach($food_id, ['weight'=>$weight,'date'=>$date]);
@@ -35,7 +35,13 @@ class UserController extends Controller
             $calories+=$food->calories*$food->pivot->weight;
         }
         $foods=Food::all();
+        $userFoods=[];
+        foreach ($user->foods as $food){
+            if ($food->pivot->date==$date){
+                array_push($userFoods,$food);
+            }
+        }
         $period=$user->periods->last();
-        return view('User.foods',compact('foods','user','calories','period'));
+        return view('User.foods',compact('foods','userFoods','user','calories','period'));
     }
 }
