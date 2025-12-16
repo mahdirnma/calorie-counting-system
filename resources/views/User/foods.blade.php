@@ -7,6 +7,7 @@
         <div class="w-[90%] h-5/6 bg-white rounded-xl pt-3 flex flex-col items-center">
             <div class="w-[90%] h-1/5 flex justify-between items-center border-b">
                 <form action="{{route('user.foods')}}" method="get" class="w-full flex flex-row-reverse justify-center gap-x-7">
+                    @csrf
                     <select name="food_id" id="food_id" class="w-52 h-10 rounded border pl-2">
                         @foreach($foods as $food)
                             <option value="{{$food->id}}">{{$food->name}}</option>

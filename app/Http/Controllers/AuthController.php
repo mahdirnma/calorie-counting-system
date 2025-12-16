@@ -20,6 +20,11 @@ class AuthController extends Controller
         }
         return to_route('login.form');
     }
+
+    public function registerForm()
+    {
+        return view('auth.register');
+    }
     public function logout(){
         Auth::logout();
         return redirect()->route('login.form');

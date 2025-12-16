@@ -24,9 +24,9 @@
             @if($errors->has('password'))
                 <p class="text-red-600 mt-2">{{$errors->first('password')}}</p>
             @endif
-            <input type="submit" value="ورود" class="mt-10 w-full h-12 text-gray-100 bg-gray-600 rounded  cursor-pointer">
+            <input type="submit" value="login" class="mt-10 w-full h-12 text-gray-100 bg-gray-600 rounded  cursor-pointer">
         </form>
-{{--        <a href="{{route('register.form')}}" class="mt-10 hover:text-lg hover:text-green-700 transition-all duration-400">ثبت نام نکرده اید؟</a>--}}
+        <a href="{{route('register.form')}}" class="mt-10 hover:text-lg hover:text-green-700 transition-all duration-400">ثبت نام نکرده اید؟</a>
     </div>
 </div>
 </body>
